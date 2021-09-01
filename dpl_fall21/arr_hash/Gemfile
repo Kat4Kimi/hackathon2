@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+gem 'pry'
+gem 'colorize'
+
+gem 'acts_as_shopping_cart', '~> 0.4.1'
+# IF AN ERROR OCCURS YOU CAN USE PRY 
+# TO FIND OUT WHERE THE ERROR IS IN THE FILE
+# PUT THE WORD "BINDING.PRY" ON THE ERROR LINE
+# RERUN THE PROGRAM
+# IRB PRY SESSION, LOOK AT ALL OF THE VALUES TO SEE IF THEY ARE CORRECT, TEST OUT CODE IN PRY
+# EXIT TO EXIT
+# REMOVE THE BINDING.PRY AND APPLY THE ATTEMPTED SOLUTION
