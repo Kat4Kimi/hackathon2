@@ -14,7 +14,7 @@ class Casino
 
 	def show_menu
 		puts "What game would you like to play?"
-		puts "1. Roulette"
+		puts "1. Dice"
 		puts "2. High / Low"
 		puts "3. Blackjack"
 		puts "4. Check Wallet"

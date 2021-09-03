@@ -14,7 +14,7 @@ class Casino
 
 	def show_menu
 		puts "What game would you like to play?"
-		puts "1. Roulette"
+		puts "1. Dice"
 		puts "2. High / Low"
 		puts "3. Blackjack"
 		puts "4. Check Wallet"
@@ -95,6 +95,7 @@ def play_blackjack
 	else 
 		puts "The computer has won."
 		@player.wallet.subtract_money(bet)
+    show_menu
 	end
 end
 

@@ -1,0 +1,56 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red31\green31\blue36;\red252\green106\blue93;
+\red252\green95\blue163;}
+{\*\expandedcolortbl;;\csgenericrgb\c100000\c100000\c100000\c85000;\csgenericrgb\c12054\c12284\c14131;\csgenericrgb\c98912\c41558\c36568;
+\csgenericrgb\c98839\c37355\c63833;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab593
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 File.open(\cf4 "filename.txt"\cf2 )\
+File.open(\cf4 "Deskktop/RB/filename.txt"\cf2 , \cf4 "r"\cf2  this is the mode you want to open it R = read) 
+\f1\b \cf5 do
+\f0\b0 \cf2  |file| This stores the file you\cf4 're opening in a file.\cf2 \
+\
+	puts file.read() this will let you access the file. file =  metadata will be pulled up 
+\f1\b \cf5 and
+\f0\b0 \cf2  .read = will display the text within the file.\
+	puts file.readline() This will print out the first line of the file\
+	puts file.readlin() This will print out the second line.\
+\
+	puts file.readchar() will read the charectars \
+	puts file.readlines() will let you read all lines 
+\f1\b \cf5 in
+\f0\b0 \cf2  file.\
+\
+	
+\f1\b \cf5 for
+\f0\b0 \cf2  line 
+\f1\b \cf5 in
+\f0\b0 \cf2  file.readlines(\
+		puts line -- this will show you all lines 
+\f1\b \cf5 in
+\f0\b0 \cf2  file.\
+\
+\
+		Another method to open files:\
+\
+With this method you need to make sure you close the file. 		\
+file = File.open(\cf4 "filename.txt, "\cf2 r\cf4 ")\cf2 \
+\
+puts file.read\
+\
+file.close()\
+
+\f1\b \cf5 end
+\f0\b0 \cf2 \
+ \
+\
+This is the way you would open a file.\
+What ever you want to 
+\f1\b \cf5 do
+\f0\b0 \cf2  with the file you would enter it 
+\f1\b \cf5 in
+\f0\b0 \cf2  BEFORE the \cf4 "end"\cf2  command.\
+}

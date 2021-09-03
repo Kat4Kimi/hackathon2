@@ -1,76 +1,88 @@
 require_relative 'card'
-
-class Deck
-	attr_accessor :cards
-
-	def initialize
-    @ranks = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
-    @suits = %w(Spades Diamonds Clubs Hearts)
-    @cards = []
-    generate_deck
-  end
-
-	def shuffle_cards
-		@cards.shuffle_cards
-	end
-
-	def pull_card
-		shuffle_cards.first
-	end
-
-	def generate_deck
-		@suits.each do |suit|
-			@ranks.size.times do |i|
-				# Ternary Operator
-				color = (suit == 'Spades' || suit == 'Clubs') ?
-				@cards ,, Card.new(@ranks[i], suit, color)
-			end
-		end
-	end
-
-	def display_cards
-		@cards.shuffle.each.do
-		
-
-def Player
-@player = Player.new
-end
-
+require_relative 'player'
+require_relative 'deck'
+require_relative 'hand'
+require_relative 'wallet'
 class Casino
-	def initialize
-		@player = Player.new
-		show_menu
-	end
+  def initialize
+    @player = Player.new
+    show_menu
+  end
+  def show_menu
+    puts "What game would you like to play?"
+    puts "1. Roulette"
+    puts "2. High / Low"
+    puts "3. Blackjack"
+    puts "4. Check Wallet"
+    puts "5. Exit"
+    response = gets.strip.to_i
+    case response
+      when 1
+        # Roulette
+      when 2
+        # High / Low
+      when 3
+        play_blackjack
+      when 4
+        puts "You have $#{@player.wallet.current_balance}!"
+      when 5
+        puts "Have a nice day!"
+        return
+      else
+        puts "Invalid entry, please try again!"
+    end
+  end
+def play_blackjack
+  puts "How much would you like to bet?"
+  bet = gets.chomp.to_i
+  while  bet > @player.wallet.current_balance || bet < 1
+    puts "Insufficient funds."
+    bet = gets.chomp.to_i
+  end
+  deck = Deck.new
+  hand = Hand.new
+  deck.shuffle_cards
+  hand.hit(deck.deal)
+  hand.hit(deck.deal)
+  computer = Hand.new
+  computer.hit(deck.deal)
+  computer.hit(deck.deal)
+  puts "Hand value:#{hand.hand_value}"
+  puts "Opponent value:#{computer.hand_value}"
+  response = "h"
+  while response == "h"
+    puts "Press h for hit or s stay."
+    response = gets.strip
+    case response
+    when "h"
+      hand.hit(deck.deal)
+      puts "Hand value:#{hand.hand_value}"
+    break if hand.hand_value > 21
+    when "s"
+      puts "You selected to stay."
+    end
+  end
+  puts "Hand value:#{hand.hand_value}"
+  if hand.hand_value > 21
+    puts "You busted!"
+  elsif hand.hand_value == 21
+    puts "You got Blackjack!"
+  end
+  while computer.hand_value < 17
+    computer.hit(deck.deal)
+  end
+  puts "Computer value:#{computer.hand_value}"
+  if hand.hand_value > computer.hand_value && hand.hand_value <= 21
+    puts "You have won!"
+    @player.wallet.add_money(bet)
+    show_menu
+  elsif hand.hand_value <= 21 && computer.hand_value > 21
+    puts "You have won!"
+    @player.wallet.add_money(bet)
+  else
+    puts "The computer has won."
+    @player.wallet.subtract_money(bet)
+  end
 end
-
-def show_menu
-	puts "What game would you like to play?"
-	puts "1. Roulette"
-	puts "2. High / Low"
-	puts "3. Blackjack"
-	puts "4. Check Wallet"
-	puts "5. Exit"
-	response = gets.strip.to_i
-	raise "Bad Input" unless response > 0 && response < 6
-	
-	case response 
-		when 1 
-			Roulette
-		when 2 
-			High / Low 
-		when 3
-			Blackjack
-		when 4
-			puts "You have $#{@player.wallet}!"
-		when 5
-			puts "Have a nice day!"
-			Exit
-		else
-			raise
-		end
-	end
-
-rescue StandardError => e
-	puts e
-	retry
 end
+Casino.new.show_menu
