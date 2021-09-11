@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
-  get 'trips/index'
-  get 'trips/show'
-  get 'trips/create'
-  get 'trips/new'
-  get 'trips/edit'
-  get 'trips/update'
-  get 'users/index'
-  get 'users/show'
-  get 'users/create'
-  get 'users/new'
-  get 'users/edit'
-  get 'users/update'
-root 'trips#index'
+  root 'users#index'
 
+  resources :users do
+    resources :trip1s
+  end
 
+  resources :trip1s do
+    resources :locations
+  end
+
+  resources :locations do
+    resources :addresses
+  end
 end
+
