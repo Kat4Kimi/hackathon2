@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Pets from '../pet/Pets'
 import Activities from '../activity/Activities'
 import Appointments from '../appointment/Appointments';
+
 const User = ({ id, first_name, last_name, email, password, deleteUser, updateUser }) => {
   const [editing, setEdit] = useState(false)
 
@@ -43,6 +44,7 @@ const User = ({ id, first_name, last_name, email, password, deleteUser, updateUs
         <button onClick={() => deleteUser(id)}>Delete</button>
       </li>
       <Pets userId={id} />
+
     </>
   )
 }
