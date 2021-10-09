@@ -21,7 +21,7 @@ const User = ({ id, first_name, last_name, email, password, deleteUser, updateUs
         <br />
         {password}
         <br />
-        <Link to="./pet/PetList">
+        <Link to="/pets">
           <button type="button">View Pets</button>
         </Link>
       
@@ -43,7 +43,6 @@ const User = ({ id, first_name, last_name, email, password, deleteUser, updateUs
         }
         <button onClick={() => deleteUser(id)}>Delete</button>
       </li>
-      <Pets userId={id} />
 
     </>
   )

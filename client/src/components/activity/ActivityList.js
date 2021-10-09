@@ -5,13 +5,13 @@ const ActivityList = ({ activities, deleteActivity, updateActivity }) => {
     <>
       <ul>
         {
-          activities.map((a) => 
+          activities.map(a => 
             
-            (<Activity 
+            <Activity 
               {...a} 
               deleteActivity={deleteActivity} 
               updateActivity={updateActivity}
-            />)
+            />
           )
         }
       </ul>

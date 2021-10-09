@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ActivityForm from './ActivityForm';
+import AppointmentForm from './AppointmentForm';
 
 const  Appointment = ({ id, vet, groomer, training,  deleteAppointment, updateAppointment }) => {
   const [editing, setEdit] = useState(false)
@@ -13,25 +13,16 @@ const  Appointment = ({ id, vet, groomer, training,  deleteAppointment, updateAp
         {groomer}
 				<br />
         {training}
-        <br />
         {
           editing ?
           <>
-            <ServiceForm
+            <AppointmentForm
               id={id}
               vet={vet}
               groomer={groomer}
-              trainer={trainer}
-              updateAppointment={updateService}
+              training={training}
+              updateAppointment={updateAppointment}
               setEdit={setEdit}
-            />
-						<ServiceForm
-              id={id}
-              vet={vet}
-              groomer={groomer}
-              trainer={trainer}
-              updateAppointment={deleteAppointment}
-              setDelete={setDelete}
             />
           </>
           :

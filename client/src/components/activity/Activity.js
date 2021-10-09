@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import ActivityForm from './ActivityForm';
+import { Link } from 'react-router-dom';
 
-const  Appointment = ({ id, food, exercise, potty, other,  deleteAppointment, updateAppointment }) => {
+
+const  Appointment = ({ id, food, exercise, potty, other,  deleteActivity, updateActivity }) => {
   const [editing, setEdit] = useState(false)
 
   return (
@@ -16,32 +18,26 @@ const  Appointment = ({ id, food, exercise, potty, other,  deleteAppointment, up
         <br />
         {other}
         <br />
+        <Link to="/appointments">
+          <button type="button">View Appointments</button>
+        </Link>
         {
           editing ?
           <>
-            <ServiceForm
+            <ActivityForm
               id={id}
               vet={food}
               groomer={exercise}
               trainer={potty}
               trainer={other}
-              updateAppointment={updateAppointment}
+              updateActivity={updateActivity}
               setEdit={setEdit}
-            />
-						<ServiceForm
-              id={id}
-              vet={food}
-              groomer={exercise}
-              trainer={potty}
-              trainer={other}
-              updateAppointment={deleteAppointment}
-              setDelete={setDelete}
             />
           </>
           :
           <button onClick={() => setEdit(true)}>Edit</button>
         }
-        <button onClick={() => deleteAppointment(id)}>Delete</button>
+        <button onClick={() => deleteActivity(id)}>Delete</button>
       </li>
      
     </>
