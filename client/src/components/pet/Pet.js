@@ -6,21 +6,19 @@ import Pets from './Pets';
 import { Link } from 'react-router-dom';
 
 
-const Pet = ({ id, name, breed, weight, dob, deletePet, updatePet }) => {
+const Pet = ({ id, name, weight, dob, deletePet, updatePet }) => {
   const [editing, setEdit] = useState(false)
 
   return (
     <>
       <li>
-        {breed}
-				<br />
         {weight}
 				<br />
         {dob}
 				<br />
         {name}
 				<br />
-        <Link to="/activities">
+        <Link to="/activity">
           <button type="button">View Activities</button>
         </Link>
         {
@@ -28,7 +26,6 @@ const Pet = ({ id, name, breed, weight, dob, deletePet, updatePet }) => {
           <>
             <PetForm
               id={id}
-              breed={breed}
               name={name}
               weight={weight}
               dob={dob}

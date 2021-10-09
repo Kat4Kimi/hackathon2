@@ -59,7 +59,6 @@ const Users = () => {
 
   return(
     <>
-      <UserForm addUser={addUser} />
       <UserList 
         users={users} 
         deleteUser={deleteUser}

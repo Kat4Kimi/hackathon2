@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import PetList from './PetList';
 import PetForm from './PetForm';
-
+import User from "../users/User";
 const Pets = ({userId}) => {
   const [pets, setPets] = useState([])
 
@@ -61,8 +61,8 @@ const Pets = ({userId}) => {
     <>
       <PetList 
         pets={pets} 
-        deletepet={deletePet}
-        updatepet={updatePet}
+        deletePet={deletePet}
+        updatePet={updatePet}
       />
       <PetForm addPet={addPet} />
     </>
