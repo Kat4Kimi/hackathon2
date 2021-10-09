@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ConnectedLogin from '../auth/Login';
 import UserForm from './UserForm';
+import Pet from '../pet/Pet';
 
 const User = ({ id, first_name, last_name, email, password, deleteUser, updateUser }) => {
   const [editing, setEdit] = useState(false)
@@ -37,7 +38,7 @@ const User = ({ id, first_name, last_name, email, password, deleteUser, updateUs
         }
         <button onClick={() => deleteUser(id)}>Delete</button>
       </li>
-      <ConnectedLogin userId={id} />
+      <Pet userId={id} />
     </>
   )
 }
