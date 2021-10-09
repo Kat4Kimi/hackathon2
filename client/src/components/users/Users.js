@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import userList from './userList';
-import userForm from './userForm';
+import UserList from './UserList';
+import UserForm from './UserForm';
 
 const Users = () => {
   const [users, setUsers] = useState([])
@@ -23,7 +23,7 @@ const Users = () => {
     // add in the state in the client
     axios.post('/api/users', { user })
       .then(res => {
-        setUsers([...Users, res.data])
+        setUsers([...users, res.data])
       })
       .catch( err => console.log(err) )
   }
@@ -34,11 +34,11 @@ const Users = () => {
     axios.put(`/api/users/${id}`, { user })
     .then( res => {
       // update in the state in the client
-      const updatedUsers = Users.map( w => {
-        if (w.id == id) {
+      const updatedUsers = users.map( u => {
+        if (u.id == id) {
           return res.data
         }
-        return w
+        return u
       })
       setUsers(updatedUsers)
     })
