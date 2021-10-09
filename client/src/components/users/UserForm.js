@@ -17,7 +17,7 @@ const UserForm = ({ addUser, id, first_name, last_name, email, password, updateU
     } else {
       addUser(user)
     }
-    setTodo({ first_name: "", last_name: "", email: "", password: "" })
+    setUser({ first_name: "", last_name: "", email: "", password: "" })
   }
 
   return (
