@@ -5,13 +5,12 @@ const UserList = ({ users, deleteUser, updateUser }) => {
     <>
       <ul>
         {
-          users.map((u) => 
-            
-            (<User 
+          users.map( u => 
+            <User 
               {...u} 
-              deleteUser={deleteUser} 
+              deleteUser={deleteUser}
               updateUser={updateUser}
-            />)
+            />
           )
         }
       </ul>

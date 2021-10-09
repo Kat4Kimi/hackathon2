@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const UserForm = ({ addUser, id, first_name, last_name, email, password, updateUser, setEdit }) => {
-  const [user, setUser] = useState({ first_name: "", last_name: "", email: "", password: "" })
+  const [user, setUser] = useState({ first_name: "", last_name: "", email: "", password:"" })
 
   useEffect( () => {
     if (id) {
@@ -14,14 +14,16 @@ const UserForm = ({ addUser, id, first_name, last_name, email, password, updateU
     if (id) {
       updateUser(id, user)
       setEdit(false)
-    } else {
-      addUser(user)
     }
-    setUser({ first_name: "", last_name: "", email: "", password: "" })
+    // } else {
+    //   addUser(user)
+    // }
+    setUser({ first_name: "", last_name: "" , email: "", password: "" })
   }
 
   return (
     <>
+    <h4>Add New User</h4>
       <form onSubmit={handleSubmit}>
         <input 
           name="first_name"
@@ -38,7 +40,7 @@ const UserForm = ({ addUser, id, first_name, last_name, email, password, updateU
 
           required
           placeholder="Last Name"
-        />
+        /> 
         <input 
           name="email"
           value={user.email}
@@ -46,7 +48,7 @@ const UserForm = ({ addUser, id, first_name, last_name, email, password, updateU
 
           required
           placeholder="Email"
-        />
+        />    
         <input 
           name="password"
           value={user.password}
@@ -54,8 +56,7 @@ const UserForm = ({ addUser, id, first_name, last_name, email, password, updateU
 
           required
           placeholder="Password"
-        />
-     
+        />  
         <button type="submit">Submit</button>
       </form>
 
