@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import petList from './petList';
-import petForm from './petForm';
+import PetList from './PetList';
+import PetForm from './PetForm';
 
 const Pets = () => {
   const [pets, setPets] = useState([])
