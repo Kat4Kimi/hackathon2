@@ -5,13 +5,13 @@ const PetList = ({ pets, deletePet, updatePet }) => {
     <>
       <ul>
         {
-          pets.map((p) => 
+          pets.map(p => 
             
-            (<Pet 
+            <Pet 
               {...p} 
               deletePet={deletePet} 
               updatePet={updatePet}
-            />)
+            />
           )
         }
       </ul>

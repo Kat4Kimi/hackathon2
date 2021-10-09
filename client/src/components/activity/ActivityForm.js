@@ -34,7 +34,7 @@ const ActivityForm = ({ addActivity, id, pet_id, food, exercise, potty, other, u
         <input 
           name="exercise"
           value={activity.exercise}
-          onChange={(e) => setUser({...activity, exercise: e.target.value })}
+          onChange={(e) => setActivity({...activity, exercise: e.target.value })}
 
           required
           placeholder="Exercise"

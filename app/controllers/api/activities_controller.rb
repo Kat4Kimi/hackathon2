@@ -1,5 +1,5 @@
 class Api::ActivitiesController < ApplicationController
-		before_action :set_pet
+		 before_action :set_pet
 		
 		def index
 			render json: @pet.activities

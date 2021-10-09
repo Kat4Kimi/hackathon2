@@ -3,13 +3,13 @@ import axios from 'axios';
 import PetList from './PetList';
 import PetForm from './PetForm';
 
-const Pets = () => {
+const Pets = ({userId}) => {
   const [pets, setPets] = useState([])
 
   // before it mounts
   useEffect( () => {
       // grab Pets from the database
-      axios.get('/api/pets')
+      axios.get(`/api/users/${userId}/pets`)
         .then( res => {
           // and set it to state
           setPets(res.data)
@@ -21,7 +21,7 @@ const Pets = () => {
   const addPet = (pet) => {
     // add in the db
     // add in the state in the client
-    axios.post('/api/pets', { pet })
+    axios.post(`/api/users/${userId}/pets`, { pet })
       .then(res => {
         setPets([...pets, res.data])
       })
@@ -31,11 +31,11 @@ const Pets = () => {
   // update pet
   const updatePet = (id, pet) => {
     // update in the db
-    axios.put(`/api/pets/${id}`, { pet })
+    axios.put(`/api/users/${userId}/pets/${id}`, { pet })
     .then( res => {
       // update in the state in the client
       const updatedPets = pets.map( p => {
-        if (p.id == id) {
+        if (p.id === id) {
           return res.data
         }
         return p
@@ -48,7 +48,7 @@ const Pets = () => {
   // delete pet
   const deletePet = (id) => {
     // delete in the db
-    axios.delete(`/api/pets/${id}`)
+    axios.delete(`/api/users/${userId}/pets/${id}`)
       .then( res => {
         // delete in the state in the client
         setPets(pets.filter( p => p.id !== id))
@@ -59,12 +59,12 @@ const Pets = () => {
 
   return(
     <>
-      <petList 
-        Pets={Pets} 
+      <PetList 
+        pets={pets} 
         deletepet={deletePet}
         updatepet={updatePet}
       />
-      <petForm addpet={addPet} />
+      <PetForm addPet={addPet} />
     </>
   )
 }

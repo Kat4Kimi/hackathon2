@@ -5,13 +5,13 @@ const AppointmentList = ({ appointments, deleteAppointment, updateAppointment })
     <>
       <ul>
         {
-          appointments.map((a) => 
+          appointments.map(a => 
             
-            (<Appointment 
+            <Appointment 
               {...a} 
               deleteAppointment={deleteAppointment} 
               updateAppointment={updateAppointment}
-            />)
+            />
           )
         }
       </ul>

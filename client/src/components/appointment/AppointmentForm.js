@@ -12,7 +12,7 @@ const AppointmentForm = ({ addAppointment, id, activity_id, vet, groomer, traini
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-      updateA(id, appointment)
+      updateAppointment(id, appointment)
       setEdit(false)
     } else {
       addAppointment(appointment)
@@ -34,7 +34,7 @@ const AppointmentForm = ({ addAppointment, id, activity_id, vet, groomer, traini
         <input 
           name="groomer"
           value={appointment.groomer}
-          onChange={(e) => setUser({...appointment, groomer: e.target.value })}
+          onChange={(e) => setAppointment({...appointment, groomer: e.target.value })}
 
           required
           placeholder="Groomer"
@@ -42,7 +42,7 @@ const AppointmentForm = ({ addAppointment, id, activity_id, vet, groomer, traini
         <input 
           name="Training"
           value={appointment.training}
-          onChange={(e) => setUser({...appointment, training: e.target.value })}
+          onChange={(e) => setAppointment({...appointment, training: e.target.value })}
 
           required
           placeholder="Training"

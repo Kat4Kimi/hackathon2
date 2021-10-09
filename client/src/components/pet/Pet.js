@@ -3,9 +3,10 @@ import Activities from '../activity/Activities';
 import Users from '../users/Users';
 import PetForm from './PetForm';
 import Pets from './Pets';
+import { Link } from 'react-router-dom';
 
 
-const Comment = ({ id, name, breed, weight, dob, deletePet, updatePet }) => {
+const Pet = ({ id, name, breed, weight, dob, deletePet, updatePet }) => {
   const [editing, setEdit] = useState(false)
 
   return (
@@ -19,6 +20,9 @@ const Comment = ({ id, name, breed, weight, dob, deletePet, updatePet }) => {
 				<br />
         {name}
 				<br />
+        <Link to="/activities">
+          <button type="button">View Activities</button>
+        </Link>
         {
           editing ?
           <>
@@ -31,22 +35,12 @@ const Comment = ({ id, name, breed, weight, dob, deletePet, updatePet }) => {
               updatePet={updatePet}
               setEdit={setEdit}
             />
-            <PetForm
-              id={id}
-              breed={breed}
-              name={name}
-              weight={weight}
-              dob={dob}
-              updatePet={editPet}
-              setEdit={setEdit}
-            />
           </>
           :
           <button onClick={() => setEdit(true)}>Edit</button>
         }
         <button onClick={() => deletePet(id)}>Delete</button>
       </li>
-			<Activities petId={id} />
     </>
   )
 }
