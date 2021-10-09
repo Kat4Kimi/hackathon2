@@ -9,9 +9,9 @@ import Users from './components/users/Users';
 import Pets from './components/pet/Pets';
 import Activities from './components/activity/Activities';
 import Appointment from './components/appointment/Appointments';
-
+import Dash from './components/shared/Dash';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-
+import User from './components/users/User';
 const App = () => (
   <>
     <Navbar />
@@ -20,10 +20,11 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/users" component={Users} />
+        <Route exact path="/users" component={User} />        
         <Route exact path="/pets" component={Pets} />
         <Route exact path="/activity" component={Activities} />
         <Route exact path="/appointment" component={Appointment} />
+        <ProtectedRoute exact path="/dash" component={Dash} />
         <Route component={Nomatch} />
       </Switch>
     </FetchUser>

@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import ConnectedLogin from '../auth/Login';
 import UserForm from './UserForm';
-import Pet from '../pet/Pet';
+import { Link } from 'react-router-dom';
+import Pets from '../pet/Pets'
+import Activities from '../activity/Activities'
+import Appointments from '../appointment/Appointments';
 
 const User = ({ id, first_name, last_name, email, password, deleteUser, updateUser }) => {
   const [editing, setEdit] = useState(false)
 
   return (
     <>
-      <a href={`/users/${id}/pets`}>User</a>
       <li>
         <br />
 				{first_name}
@@ -19,6 +21,9 @@ const User = ({ id, first_name, last_name, email, password, deleteUser, updateUs
         <br />
         {password}
         <br />
+        <Link to="./pet/PetList">
+          <button type="button">View Pets</button>
+        </Link>
       
         {
           editing ?
@@ -29,7 +34,7 @@ const User = ({ id, first_name, last_name, email, password, deleteUser, updateUs
               lastName={last_name}
 							email={email}
 							password={password}
-              updateTodo={updateUser}
+              updateUser={updateUser}
               setEdit={setEdit}
             />
           </>
@@ -38,7 +43,8 @@ const User = ({ id, first_name, last_name, email, password, deleteUser, updateUs
         }
         <button onClick={() => deleteUser(id)}>Delete</button>
       </li>
-      <Pet userId={id} />
+      <Pets userId={id} />
+
     </>
   )
 }

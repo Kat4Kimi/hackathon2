@@ -35,7 +35,7 @@ const Users = () => {
     .then( res => {
       // update in the state in the client
       const updatedUsers = users.map( u => {
-        if (u.id == id) {
+        if (u.id === id) {
           return res.data
         }
         return u
@@ -59,12 +59,12 @@ const Users = () => {
 
   return(
     <>
-      <userList 
-        Users={Users} 
+      <UserForm addUser={addUser} />
+      <UserList 
+        users={users} 
         deleteUser={deleteUser}
         updateUser={updateUser}
       />
-      <userForm adduser={addUser} />
     </>
   )
 }
