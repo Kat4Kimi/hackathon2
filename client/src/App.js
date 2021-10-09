@@ -17,14 +17,13 @@ const App = () => (
     <Navbar />
     <FetchUser>
       <Switch>
-        <Route exact path="/" component={Home} />
+      <ProtectedRoute exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/users" component={User} />        
+        <Route exact path="/users" component={Users} />
         <Route exact path="/pets" component={Pets} />
         <Route exact path="/activity" component={Activities} />
         <Route exact path="/appointment" component={Appointment} />
-        <ProtectedRoute exact path="/dash" component={Dash} />
         <Route component={Nomatch} />
       </Switch>
     </FetchUser>

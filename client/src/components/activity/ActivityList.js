@@ -5,8 +5,7 @@ const ActivityList = ({ activities, deleteActivity, updateActivity }) => {
     <>
       <ul>
         {
-          activities.map(a => 
-            
+          activities.map( a => 
             <Activity 
               {...a} 
               deleteActivity={deleteActivity} 
