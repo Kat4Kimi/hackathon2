@@ -1,57 +1,47 @@
 import { Link, withRouter } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Menu } from 'semantic-ui-react';
 
-const Navbar = ({ user, handleLogout, history, location }) => {
+const Navbar = ({ user, handleLogout, history }) => {
 
   const rightNavItems = () => {
     if (user) {
       // links for when the user is login in
       return (
-        <Menu.Menu position='right'>
-          <Menu.Item onClick={() => handleLogout(history)}
+        <>
+          <li onClick={() => handleLogout(history)}>
             Logout
-          />
-        </Menu.Menu>
+          </li>
+        </>
       )
     } else {
       // links for when there is no user login 
       return(
-        <Menu.Menu position='right'>
-          <Menu.Item
-              id='login'
-              name='login'
-              active={location.pathname === '/login'}
-            />
-          <Menu.Item
-              id='register'
-              name='register'
-              active={location.pathname === '/register'}
-            />
-        </Menu.Menu>
+        <>
+          <Link to="/login">
+            <li>Login</li>
+          </Link>
+          <Link to="/register">
+            <li>Register</li>
+          </Link>
+
+        </>
       )
     }
   }
   return(
-    <div>
-      <Menu pointing secondary>
-        <Link to='/'>
-          <Menu.Item
-            name='home'
-            id='home'
-            active={location.pathname === '/'}
-          />
-        </Link>
-        <Link to='/'>
-          <Menu.Item
-            name='pets'
-            id='pets'
-            active={location.pathname === '/pet'}
-          />
-        </Link>
+    <>
+      <nav>
+        <ul>
+          {/* where you see links regardless of if you are login or not */}
+          <Link to="/">
+            <li>
+              Home
+            </li>
+          </Link>
           { rightNavItems() }
-      </Menu>
-    </div>
+        </ul>
+      </nav>
+    </>
   )
 }
 

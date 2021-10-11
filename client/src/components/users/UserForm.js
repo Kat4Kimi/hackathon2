@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const UserForm = ({ addUser, id, first_name, last_name, email, password, updateUser, setEdit }) => {
+const UserForm = ({  id, first_name, last_name, email, password, updateUser, setEdit }) => {
   const [user, setUser] = useState({ first_name: "", last_name: "", email: "", password:"" })
 
   useEffect( () => {
@@ -23,7 +23,7 @@ const UserForm = ({ addUser, id, first_name, last_name, email, password, updateU
 
   return (
     <>
-    <h4>Add New User</h4>
+    <h4>Edit User</h4>
       <form onSubmit={handleSubmit}>
         <input 
           name="first_name"
@@ -41,22 +41,7 @@ const UserForm = ({ addUser, id, first_name, last_name, email, password, updateU
           required
           placeholder="Last Name"
         /> 
-        <input 
-          name="email"
-          value={user.email}
-          onChange={(e) => setUser({...user, email: e.target.value })}
-
-          required
-          placeholder="Email"
-        />    
-        <input 
-          name="password"
-          value={user.password}
-          onChange={(e) => setUser({...user, password: e.target.value })}
-
-          required
-          placeholder="Password"
-        />  
+ 
         <button type="submit">Submit</button>
       </form>
 

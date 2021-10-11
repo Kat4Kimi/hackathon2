@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
 import Users from '../users/Users';
 
-const Home = () => {
+const Home = ({id}) => {
   <>
   <h1>Home Page</h1>
   </>
   return(
-    <Users />
+    <Users id={id}/>
   
   )
 }

@@ -32,8 +32,6 @@ const User = ({ id, first_name, last_name, email, password, deleteUser, updateUs
               id={id}
               firstName={first_name}
               lastName={last_name}
-							email={email}
-							password={password}
               updateUser={updateUser}
               setEdit={setEdit}
             />
